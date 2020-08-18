@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="s1"
+            type="String" />
+
+        <variable
+            name="s2"
+            type="String" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            tools:context=".fragments.StopwatchFragment">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/stopwatchToolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="5dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ToolbarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/back_icon"
+                app:title="Stopwatch"
+                app:titleTextColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tvSec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{s1}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.408"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stopwatchToolbar"
+                app:layout_constraintVertical_bias="0.39999998"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="12dp"
+                android:text="@{s2}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="26sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSec"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tvSec"
+                app:layout_constraintTop_toTopOf="@+id/tvSec"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="000" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/startPauseBt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:src="@drawable/play_icon"
+            app:backgroundTint="@color/colorPrimary"
+            app:rippleColor="@android:color/white"
+            app:tint="@android:color/white" />
+
+        <Button
+            android:id="@+id/resetBt"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="25dp"
+            android:text="Reset"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

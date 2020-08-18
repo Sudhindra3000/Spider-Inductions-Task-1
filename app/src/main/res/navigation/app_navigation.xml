@@ -12,8 +12,15 @@
         tools:layout="@layout/fragment_menu">
         <!--Todo: Change Animations-->
         <action
-            android:id="@+id/show_alarms"
+            android:id="@+id/show_alarm"
             app:destination="@id/alarmFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/show_stopwatch"
+            app:destination="@id/stopwatchFragment"
             app:enterAnim="@anim/fragment_open_enter"
             app:exitAnim="@anim/fragment_open_exit"
             app:popEnterAnim="@anim/nav_default_enter_anim"
@@ -24,4 +31,9 @@
         android:name="com.sudhindra.spider_inductions_task_1.fragments.AlarmFragment"
         android:label="fragment_alarm"
         tools:layout="@layout/fragment_alarm" />
+    <fragment
+        android:id="@+id/stopwatchFragment"
+        android:name="com.sudhindra.spider_inductions_task_1.fragments.StopwatchFragment"
+        android:label="fragment_stopwatch"
+        tools:layout="@layout/fragment_stopwatch" />
 </navigation>

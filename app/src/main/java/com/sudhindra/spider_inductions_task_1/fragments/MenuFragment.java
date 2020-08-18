@@ -78,7 +78,7 @@ public class MenuFragment extends Fragment {
     };
 
     private void showAlarmScreen() {
-        navController.navigate(R.id.show_alarms);
+        navController.navigate(R.id.show_alarm);
     }
 
     private void showTimerScreen() {
@@ -86,7 +86,7 @@ public class MenuFragment extends Fragment {
     }
 
     private void showStopwatchScreen() {
-        Toast.makeText(requireContext(), "Work in Progress", Toast.LENGTH_SHORT).show();
+        navController.navigate(R.id.show_stopwatch);
     }
 
     @Override
