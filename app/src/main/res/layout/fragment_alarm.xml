@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sudhindra.spider_inductions_task_1.utils.AlarmUtil" />
+
+        <variable
+            name="alarm"
+            type="com.sudhindra.spider_inductions_task_1.models.Alarm" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".fragments.AlarmFragment">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/alarmsToolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="5dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ToolbarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/back_icon"
+                app:title="Alarm"
+                app:titleTextColor="@color/colorPrimary" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/alarmCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="10dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:visibility="gone"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alarmsToolbar"
+                app:layout_constraintVertical_bias="0.0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true">
+
+                    <!-- Todo: Option to change Title-->
+                    <TextView
+                        android:id="@+id/alarmTitleTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="20dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{alarm.title}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/alarmSwitch"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.022"
+                        tools:text="Alarm Title" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/alarmSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:checked="@{alarm.on}"
+                        android:showText="false"
+                        android:textSize="0sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/alarmTitleTv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/alarmTitleTv"
+                        app:showText="false"
+                        tools:checked="true" />
+
+                    <TextView
+                        android:id="@+id/alarmTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="15dp"
+                        android:text="@{AlarmUtil.getAlarmTime(alarm)}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="38sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/alarmTitleTv"
+                        app:layout_constraintTop_toBottomOf="@+id/alarmTitleTv"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="09:40 AM" />
+
+                    <ImageView
+                        android:id="@+id/expandAlarmBt"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="?attr/actionBarItemBackground"
+                        android:src="@drawable/down_arrow_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/alarmSwitch"
+                        app:layout_constraintStart_toStartOf="@+id/alarmSwitch"
+                        app:layout_constraintTop_toBottomOf="@+id/alarmSwitch"
+                        app:layout_constraintVertical_bias="1.0"
+                        app:tint="@color/colorPrimary" />
+
+                    <Button
+                        android:id="@+id/deleteAlarmBt"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Delete"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/expandAlarmBt"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/alarmTimeTv"
+                        app:layout_constraintVertical_bias="1.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/noAlarmTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Alarm Set"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_anchor="@+id/constraintLayout"
+            app:layout_anchorGravity="center" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/setAlarmBt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:src="@drawable/add_alarm_icon"
+            app:backgroundTint="@color/colorPrimary"
+            app:rippleColor="@android:color/white"
+            app:tint="@android:color/white" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
