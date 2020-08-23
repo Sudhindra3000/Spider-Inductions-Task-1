@@ -82,7 +82,7 @@ public class MenuFragment extends Fragment {
     }
 
     private void showTimerScreen() {
-        Toast.makeText(requireContext(), "Work in Progress", Toast.LENGTH_SHORT).show();
+        navController.navigate(R.id.show_timer);
     }
 
     private void showStopwatchScreen() {

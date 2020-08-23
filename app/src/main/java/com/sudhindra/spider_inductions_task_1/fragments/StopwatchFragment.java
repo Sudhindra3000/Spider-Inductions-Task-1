@@ -26,6 +26,10 @@ public class StopwatchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentStopwatchBinding.inflate(inflater, container, false);
+
+        binding.startPauseBt.setOnClickListener(this::startPause);
+        binding.resetBt.setOnClickListener(this::reset);
+
         return binding.getRoot();
     }
 
@@ -38,9 +42,6 @@ public class StopwatchFragment extends Fragment {
 
         binding.setS1("00");
         binding.setS2("000");
-
-        binding.startPauseBt.setOnClickListener(this::startPause);
-        binding.resetBt.setOnClickListener(this::reset);
 
         callback = new StopwatchUtil.TimerCallback() {
             @Override

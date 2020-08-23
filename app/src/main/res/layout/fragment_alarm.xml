@@ -24,7 +24,7 @@
             tools:context=".fragments.AlarmFragment">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/alarmsToolbar"
+                android:id="@+id/alarmToolbar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
@@ -54,7 +54,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alarmsToolbar"
+                app:layout_constraintTop_toBottomOf="@+id/alarmToolbar"
                 app:layout_constraintVertical_bias="0.0">
 
                 <androidx.constraintlayout.widget.ConstraintLayout

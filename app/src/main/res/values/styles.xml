@@ -28,4 +28,10 @@
         <item name="android:indeterminateOnly">false</item>
         <item name="android:progressDrawable">@drawable/circular_progress_bar</item>
     </style>
+
+    <style name="NumberPickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

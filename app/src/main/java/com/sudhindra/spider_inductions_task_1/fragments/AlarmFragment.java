@@ -75,8 +75,8 @@ public class AlarmFragment extends Fragment implements TimePickerDialog.OnTimeSe
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ((AppCompatActivity) requireActivity()).setSupportActionBar(binding.alarmsToolbar);
-        binding.alarmsToolbar.setNavigationOnClickListener(v -> requireActivity().onBackPressed());
+        ((AppCompatActivity) requireActivity()).setSupportActionBar(binding.alarmToolbar);
+        binding.alarmToolbar.setNavigationOnClickListener(v -> requireActivity().onBackPressed());
 
         if (alarm != null) {
             binding.noAlarmTv.setVisibility(View.GONE);
